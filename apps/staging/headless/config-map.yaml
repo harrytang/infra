@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: headless-env
+  namespace: harrytang-staging
+  data:
+    # Strapi
+    NODE_ENV: 'production'
+    HOST: '0.0.0.0'
+    PORT: '1337'
+    STRAPI_TELEMETRY_DISABLED: 'true'
+    STRAPI_ADMIN_BACKEND_URL: 'https://headless-staging.harrytang.xyz'
+    ADMIN_PATH: 'admin'
+    # Database
+    DATABASE_CLIENT: 'mysql'
+    DATABASE_HOST: 'mysql.harrytang-staging.svc'
+    DATABASE_PORT: '3306'
+    DATABASE_NAME: 'headless'
+    DATABASE_USERNAME: 'headless'
+    DATABASE_SSL: 'false'
+    # SMTP
+    SMTP_HOST: 'smtp.mailgun.org'
+    SMTP_PORT: '587'
+    SMTP_USERNAME: 'info@harrytang.xyz'
+    SMTP_FROM: 'info@harrytang.xyz'
+    # STORAGE
+    STORAGE_HOST: 'assets.harrytang.xyz'
+    STORAGE_ROOT_PATH: 'staging'
+    CF_ACCESS_KEY_ID: 'af6ed96bab6432014daf36f67b608203'
+    CF_ENDPOINT: 'https://4389df0f0fbc35755e761a69eaebf297.r2.cloudflarestorage.com'
+    CF_BUCKET: 'harrytang'
