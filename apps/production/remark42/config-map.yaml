@@ -10,6 +10,7 @@ data:
   ADMIN_SHARED_ID: 'github_021d64e4d69e488058abeb3fbe01d44beadf2c32'
   ADMIN_SHARED_EMAIL: 'me@harrytang.xyz'
   AUTH_TELEGRAM: 'true'
+  AUTH_APPLE_PRIVATE_KEY_FILEPATH: '/srv/var/apple.p8'
   AUTH_EMAIL_ENABLE: 'true'
   AUTH_EMAIL_FROM: 'no-reply@notify.harrytang.xyz'
   AUTH_EMAIL_SUBJ: 'Confirm your email'
