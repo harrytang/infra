@@ -6,7 +6,7 @@ metadata:
 data:
   REMARK_URL: 'https://comment.harrytang.xyz'
   SITE: 'harrytang.xyz'
-  DEBUG: 'false'
+  DEBUG: 'true'
   ADMIN_SHARED_ID: 'github_021d64e4d69e488058abeb3fbe01d44beadf2c32'
   ADMIN_SHARED_EMAIL: 'me@harrytang.xyz'
   AUTH_TELEGRAM: 'true'
