@@ -12,6 +12,12 @@ kubectl create configmap email-templates \
   --dry-run=client -o yaml > email-templates.config-map.yaml
 ```
 
+## Apple Key
+
+```bash
+kubectl -n $NAMESPACE create secret generic apple-key --from-file=apple.p8 --dry-run=client -o yaml | kubeseal --format=yaml > apple-key.sealed-secret.yaml
+```
+
 ## Sealed secrets
 
 ```bash
@@ -24,6 +30,9 @@ export AUTH_GITHUB_CID="toBeReplaced"
 export AUTH_GITHUB_CSEC="toBeReplaced"
 export AUTH_FACEBOOK_CID="toBeReplaced"
 export AUTH_FACEBOOK_CSEC="toBeReplaced"
+export AUTH_APPLE_CID="toBeReplaced"
+export AUTH_APPLE_TID="toBeReplaced"
+export AUTH_APPLE_KID="toBeReplaced"
 export TELEGRAM_TOKEN="toBeReplaced"
 export SECRET=$(openssl rand -base64 32)
 export SMTP_USERNAME="toBeReplaced"
@@ -40,6 +49,9 @@ kubectl create secret generic --dry-run=client \
     --from-literal=AUTH_GITHUB_CSEC=$AUTH_GITHUB_CSEC \
     --from-literal=AUTH_FACEBOOK_CID=$AUTH_FACEBOOK_CID \
     --from-literal=AUTH_FACEBOOK_CSEC=$AUTH_FACEBOOK_CSEC \
+    --from-literal=AUTH_APPLE_CID=$AUTH_APPLE_CID \
+    --from-literal=AUTH_APPLE_TID=$AUTH_APPLE_TID \
+    --from-literal=AUTH_APPLE_KID=$AUTH_APPLE_KID \
     --from-literal=TELEGRAM_TOKEN=$TELEGRAM_TOKEN \
     --from-literal=SECRET=$SECRET \
     --from-literal=SMTP_USERNAME=$SMTP_USERNAME \

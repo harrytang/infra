@@ -4,6 +4,7 @@ resources:
   - config-map.yaml
   - email-templates.config-map.yaml
   - sealed-secret.yaml
+  - apple-key.sealed-secret.yaml
   - depl.yaml
   - service.yaml
   - http-route.yaml

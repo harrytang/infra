@@ -48,6 +48,9 @@ spec:
             - name: email-templates-volume
               mountPath: /srv/error_response.html.tmpl
               subPath: error_response.html.tmpl
+            - name: apple-key
+              mountPath: /srv/var/apple.p8
+              subPath: apple.p8
           securityContext:
             readOnlyRootFilesystem: false
             runAsUser: 1001
@@ -69,3 +72,6 @@ spec:
         - name: email-templates-volume
           configMap:
             name: email-templates
+        - name: apple-key
+          secret:
+            secretName: apple-key
