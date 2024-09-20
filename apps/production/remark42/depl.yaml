@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: remark42
-          image: umputun/remark42:v1.13.0 # {"$noimagepolicy": "harrytang-prod:remark42"}
+          image: umputun/remark42:v1.12.0 # {"$noimagepolicy": "harrytang-prod:remark42"}
           ports:
             - containerPort: 8080
           envFrom:
