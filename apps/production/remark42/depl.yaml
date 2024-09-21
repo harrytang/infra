@@ -23,6 +23,7 @@ spec:
       containers:
         - name: remark42
           image: umputun/remark42:master # {"$noimagepolicy": "harrytang-prod:remark42"}
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
