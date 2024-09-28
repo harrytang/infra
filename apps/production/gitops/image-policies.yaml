@@ -46,3 +46,15 @@ spec:
   policy:
     semver:
       range: '>=8.9.1'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: uptime-kuma
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: uptime-kuma
+  policy:
+    semver:
+      range: '>=1.23.0'

@@ -34,3 +34,12 @@ metadata:
 spec:
   image: curlimages/curl
   interval: 1m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: uptime-kuma
+  namespace: harrytang-prod
+spec:
+  image: louislam/uptime-kuma
+  interval: 1m0s
