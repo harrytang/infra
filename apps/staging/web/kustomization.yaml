@@ -7,4 +7,3 @@ resources:
   - depl.yaml
   - service.yaml
   - ingress.yaml
-  # - http-route.yaml

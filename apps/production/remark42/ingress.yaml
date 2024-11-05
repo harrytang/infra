@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: remark42
+  namespace: harrytang-prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+spec:
+  tls:
+    - hosts:
+        - comment.harrytang.xyz
+      secretName: remark42-tls
+  rules:
+    - host: comment.harrytang.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: remark42-srv
+                port:
+                  number: 8080
