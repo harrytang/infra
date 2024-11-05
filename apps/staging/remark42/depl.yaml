@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: remark42
-          image: umputun/remark42:v1.13.1 # {"$imagepolicy": "harrytang-staging:remark42"}
+          image: umputun/remark42:v1.14.0 # {"$imagepolicy": "harrytang-staging:remark42"}
           ports:
             - containerPort: 8080
           envFrom:
@@ -61,7 +61,7 @@ spec:
               cpu: '1'
               memory: '1Gi'
       securityContext:
-        # Has its own root privilege drop. Can't do runAsUser / runAsGroup.
+      # Has its own root privilege drop. Can't do runAsUser / runAsGroup.
       volumes:
         - name: srvvar
           persistentVolumeClaim:
