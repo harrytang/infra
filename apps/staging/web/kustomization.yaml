@@ -7,3 +7,4 @@ resources:
   - depl.yaml
   - service.yaml
   - ingress.yaml
+  - basic-auth.sealed-secret.yaml

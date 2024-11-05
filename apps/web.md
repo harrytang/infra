@@ -14,3 +14,10 @@ kubectl create secret generic --dry-run=client \
     -o yaml \
     | kubeseal --format=yaml > sealed-secret.yaml
 ```
+
+Staging Authentication
+
+```bash
+USER=<USERNAME_HERE>; PASSWORD=$(openssl rand -base64 32); echo "${USER}:$(openssl passwd -stdin -apr1 <<< ${PASSWORD})" >> auth
+kubectl -n harrytang-staging create secret generic basic-auth --from-file=auth --dry-run=client -o yaml | kubeseal --format=yaml > basic-auth.sealed-secret.yaml
+```
