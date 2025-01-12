@@ -21,6 +21,26 @@ spec:
         version: v1
     spec:
       containers:
+        - name: init
+          ports:
+            - containerPort: 1337
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+          image: ghcr.io/harrytang/headless:main-cb9f93f-1730920257 # {"$imagepolicy": "harrytang-staging:headless"}
+          command: ['/bin/sh', '-c']
+          args:
+            - |
+              echo "Building admin panel..."
+              npm run build
+              echo "Admin panel built"
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: headless-env
+            - configMapRef:
+                name: headless-env
         - name: headless
           ports:
             - containerPort: 1337
