@@ -20,7 +20,7 @@ spec:
         app: headless-depl
         version: v1
     spec:
-      containers:
+      initContainers:
         - name: init
           ports:
             - containerPort: 1337
@@ -41,6 +41,7 @@ spec:
                 name: headless-env
             - configMapRef:
                 name: headless-env
+      containers:
         - name: headless
           ports:
             - containerPort: 1337
