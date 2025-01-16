@@ -48,7 +48,7 @@ spec:
                   name: web-env
                   key: CF_API_TOKEN
         - name: next-data
-          image: ghcr.io/harrytang/web:main-48dab17-1736973695 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-f96d45f-1736990335 # {"$imagepolicy": "harrytang-staging:web"}
           command: ['/bin/sh', '-c']
           args:
             - |
@@ -73,7 +73,7 @@ spec:
               mountPath: /app/shared
       containers:
         - name: web
-          image: ghcr.io/harrytang/web:main-48dab17-1736973695 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-f96d45f-1736990335 # {"$imagepolicy": "harrytang-staging:web"}
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
