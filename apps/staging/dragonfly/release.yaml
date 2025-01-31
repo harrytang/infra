@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: dragonfly
+  namespace: harrytang-staging
+spec:
+  interval: 24h
+  timeout: 10m
+  chart:
+    spec:
+      chart: dragonfly
+      version: '~1.26.1'
+      sourceRef:
+        kind: HelmRepository
+        name: dragonfly
+        namespace: harrytang-staging
+      interval: 24h
+  values:
+    replicaCount: 3
+    storage:
+      enabled: true
+      requests: 128Mi
