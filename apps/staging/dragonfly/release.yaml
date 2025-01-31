@@ -8,9 +8,7 @@ spec:
   timeout: 10m
   chart:
     spec:
-      chart: dragonfly
-      version: '~1.26.1'
-      sourceRef:
+      chartRef:
         kind: OCIRepository
         name: dragonfly
         namespace: harrytang-staging
