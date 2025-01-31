@@ -6,13 +6,10 @@ metadata:
 spec:
   interval: 24h
   timeout: 10m
-  chart:
-    spec:
-      chartRef:
-        kind: OCIRepository
-        name: dragonfly
-        namespace: harrytang-staging
-      interval: 24h
+  chartRef:
+    kind: OCIRepository
+    name: dragonfly
+    namespace: harrytang-staging
   values:
     replicaCount: 3
     storage:
