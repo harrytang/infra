@@ -9,7 +9,7 @@ metadata:
     app: web-depl
     version: v1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: web-depl
