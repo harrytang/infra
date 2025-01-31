@@ -11,7 +11,7 @@ spec:
       chart: dragonfly
       version: '~1.26.1'
       sourceRef:
-        kind: HelmRepository
+        kind: OCIRepository
         name: dragonfly
         namespace: harrytang-staging
       interval: 24h

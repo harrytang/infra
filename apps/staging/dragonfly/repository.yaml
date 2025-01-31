@@ -1,9 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+kind: OCIRepository
 metadata:
   name: dragonfly
   namespace: harrytang-staging
 spec:
   interval: 24h
-  type: 'oci'
   url: oci://ghcr.io/dragonflydb/dragonfly/helm/dragonfly
