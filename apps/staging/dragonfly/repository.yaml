@@ -5,4 +5,5 @@ metadata:
   namespace: harrytang-staging
 spec:
   interval: 24h
+  type: 'oci'
   url: oci://ghcr.io/dragonflydb/dragonfly/helm/dragonfly
