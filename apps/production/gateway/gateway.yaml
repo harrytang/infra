@@ -4,6 +4,12 @@ kind: Service
 metadata:
   name: gateway-istio
   namespace: harrytang-prod
+  labels:
+    gateway.istio.io/managed: istio.io-gateway-controller
+    gateway.networking.k8s.io/gateway-name: gateway
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+    networking.istio.io/service-type: NodePort
 spec:
   ports:
     - name: status-port
