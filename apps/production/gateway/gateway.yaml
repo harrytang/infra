@@ -17,14 +17,12 @@ spec:
       appProtocol: tcp
       port: 15021
       targetPort: 15021
-    - name: http
-      protocol: TCP
+    - protocol: TCP
       appProtocol: http
       port: 80
       targetPort: 80
       nodePort: 30080
-    - name: https
-      protocol: TCP
+    - protocol: TCP
       appProtocol: https
       port: 443
       targetPort: 443
