@@ -62,4 +62,4 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: headless-gw-tls
+            name: headless-tls
