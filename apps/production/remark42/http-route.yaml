@@ -5,9 +5,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-remark42-http
+      sectionName: wildcard-http
   hostnames:
     - comment.harrytang.xyz
   rules:
@@ -24,9 +24,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-remark42-https
+      sectionName: wildcard-https
   hostnames:
     - comment.harrytang.xyz
   rules:
