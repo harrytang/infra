@@ -5,9 +5,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-web-http
+      sectionName: http
   hostnames:
     - harrytang.xyz
   rules:
@@ -24,9 +24,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-web-https
+      sectionName: https
   hostnames:
     - harrytang.xyz
   rules:
@@ -52,9 +52,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-web-www-http
+      sectionName: wildcard-http
   hostnames:
     - www.harrytang.xyz
   rules:
@@ -72,9 +72,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
+    - name: harrytang
       namespace: gateway
-      sectionName: harrytang-prod-web-www-https
+      sectionName: wildcard-https
   hostnames:
     - www.harrytang.xyz
   rules:

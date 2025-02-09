@@ -6,4 +6,4 @@ resources:
   - sealed-secret.yaml
   - depl.yaml
   - service.yaml
-  # - http-route.yaml
+  - http-route.yaml
