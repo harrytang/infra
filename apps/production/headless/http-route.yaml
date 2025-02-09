@@ -5,9 +5,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
-      namespace: harrytang-prod
-      sectionName: headless-http
+    - name: harrytang
+      namespace: gateway
+      sectionName: wildcard-http
   hostnames:
     - headless.harrytang.xyz
   rules:
@@ -24,9 +24,9 @@ metadata:
   namespace: harrytang-prod
 spec:
   parentRefs:
-    - name: gateway
-      namespace: harrytang-prod
-      sectionName: headless-https
+    - name: harrytang
+      namespace: gateway
+      sectionName: wildcard-https
   hostnames:
     - headless.harrytang.xyz
   rules:
