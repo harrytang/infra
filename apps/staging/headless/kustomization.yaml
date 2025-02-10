@@ -5,4 +5,5 @@ resources:
   - sealed-secret.yaml
   - depl.yaml
   - service.yaml
-  - ingress.yaml
+  # - ingress.yaml
+  - http-route.yaml
