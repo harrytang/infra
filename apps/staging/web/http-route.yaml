@@ -7,7 +7,7 @@ spec:
   parentRefs:
     - name: harrytang
       namespace: gateway
-      sectionName: http
+      sectionName: wildcard-http
   hostnames:
     - next.harrytang.xyz
   rules:
@@ -26,7 +26,7 @@ spec:
   parentRefs:
     - name: harrytang
       namespace: gateway
-      sectionName: https
+      sectionName: wildcard-https
   hostnames:
     - next.harrytang.xyz
   rules:
