@@ -24,30 +24,7 @@ spec:
         - name: next-data
           persistentVolumeClaim:
             claimName: next-data-pvc
-      initContainers:
-        - name: purge-cf-cache
-          image: curlimages/curl:8.12.1 # {"$imagepolicy": "harrytang-prod:curl"}
-          command: ['/bin/sh', '-c']
-          args:
-            - |
-              echo "Purging Cloudflare cache..."
-              curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
-              -H "Authorization: Bearer ${CF_API_TOKEN}" \
-              -H "Content-Type: application/json" \
-              --data '{"purge_everything":true}'
-              echo "Cloudflare cache purged"
-          env:
-            - name: CF_ZONE_ID
-              valueFrom:
-                configMapKeyRef:
-                  name: web-env
-                  key: CF_ZONE_ID
-            - name: CF_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: web-env
-                  key: CF_API_TOKEN
-        - name: next-data
+
           image: ghcr.io/harrytang/web:v1.20.0 # {"$imagepolicy": "harrytang-prod:web"}
           command: ['/bin/sh', '-c']
           args:
@@ -85,6 +62,3 @@ spec:
                 name: web-env
             - secretRef:
                 name: web-env
-          volumeMounts:
-            - name: next-data
-              mountPath: /app/.next
