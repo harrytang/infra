@@ -4,7 +4,7 @@ resources:
   - pvc.yaml
   - config-map.yaml
   - sealed-secret.yaml
-  - depl.yaml
+  # - depl.yaml
   - service.yaml
   # - ingress.yaml
   - http-route.yaml

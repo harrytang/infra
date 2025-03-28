@@ -87,4 +87,4 @@ spec:
                 name: web-env
           volumeMounts:
             - name: next-data
-              mountPath: /app/.next
+              mountPath: /app/.next_old
