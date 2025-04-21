@@ -1,0 +1,28 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: harrytang
+  namespace: harrytang-staging
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: harrytang-infra
+    namespace: harrytang-staging
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: it@harrytang.xyz
+        name: mrgitops
+      signingKey:
+        secretRef:
+          name: fluxcd-signing-key
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  update:
+    path: ./apps/staging
+    strategy: Setters

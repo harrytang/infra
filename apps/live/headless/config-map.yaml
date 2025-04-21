@@ -2,20 +2,20 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: headless-env
-  namespace: harrytang-staging
+  namespace: harrytang-prod
 data:
   # Strapi
   NODE_ENV: 'production'
   HOST: '0.0.0.0'
   PORT: '1337'
   STRAPI_TELEMETRY_DISABLED: 'true'
-  STRAPI_ADMIN_BACKEND_URL: 'https://headless-next.harrytang.xyz'
+  STRAPI_ADMIN_BACKEND_URL: 'https://headless.harrytang.xyz'
   # Database
   DATABASE_CLIENT: 'mysql'
   DATABASE_HOST: 'maxscale-galera.galera'
   DATABASE_PORT: '3306'
-  DATABASE_NAME: 'staging_harry_strapi'
-  DATABASE_USERNAME: 'staging_harry_strapi'
+  DATABASE_NAME: 'prod_harry_strapi'
+  DATABASE_USERNAME: 'prod_harry_strapi'
   DATABASE_SSL: 'false'
   # SMTP
   SMTP_HOST: 'smtp.tem.scw.cloud'
@@ -24,7 +24,7 @@ data:
   SMTP_FROM: 'no-reply@notify.harrytang.xyz'
   # STORAGE
   STORAGE_HOST: 'assets.harrytang.xyz'
-  STORAGE_ROOT_PATH: 'next'
+  STORAGE_ROOT_PATH: 'prod'
   CF_ACCESS_KEY_ID: 'af6ed96bab6432014daf36f67b608203'
   CF_ENDPOINT: 'https://4389df0f0fbc35755e761a69eaebf297.r2.cloudflarestorage.com'
   CF_BUCKET: 'harrytang'

@@ -1,0 +1,42 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: headless
+  namespace: harrytang-staging
+spec:
+  imageRepositoryRef:
+    name: headless
+  filterTags:
+    pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: web
+  namespace: harrytang-staging
+spec:
+  imageRepositoryRef:
+    name: web
+  filterTags:
+    pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: remark42
+  namespace: harrytang-staging
+spec:
+  imageRepositoryRef:
+    name: remark42
+  policy:
+    semver:
+      range: '>=1.13.1'

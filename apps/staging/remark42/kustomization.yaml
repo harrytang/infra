@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - config-map.yaml
+  - email-templates.config-map.yaml
+  - sealed-secret.yaml
+  - depl.yaml
+  - service.yaml
+  - http-route.yaml
+  - pvc.yaml

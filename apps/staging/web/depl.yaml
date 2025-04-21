@@ -1,0 +1,94 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: next-data-pvc
+  namespace: harrytang-staging
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-depl
+  namespace: harrytang-staging
+  annotations:
+    reloader.stakater.com/auto: 'true'
+  labels:
+    app: web-depl
+    version: v1
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: web-depl
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: web-depl
+        version: v1
+    spec:
+      securityContext:
+        fsGroup: 1001
+      volumes:
+        - name: next-data
+          persistentVolumeClaim:
+            claimName: next-data-pvc
+      initContainers:
+        - name: next-data
+          image: ghcr.io/harrytang/web:main-ec9a336-1745209224 # {"$imagepolicy": "harrytang-staging:web"}
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+          command: ['/bin/sh', '-c']
+          args:
+            - |
+              BUILD_ID_NEXT=$(cat /app/.next/BUILD_ID)
+              if [ -d "/app/shared/${BUILD_ID_NEXT}" ]; then
+                  echo "Already exist cache for build #${BUILD_ID_NEXT}"
+                  exit 0
+              else
+                echo "Creating cache for build #${BUILD_ID_NEXT}"
+                rm -rf /app/shared/*
+                mkdir -p /app/shared/${BUILD_ID_NEXT}
+                cp -r /app/.next/* /app/shared/
+                echo "Cache created"
+                exit 0
+              fi
+              echo "Deleting old caches..."
+              ls -t /app/shared/ | tail -n +6 | xargs -I {} rm -rf /app/shared/{}
+              echo "Old caches deleted"
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: next-data
+              mountPath: /app/shared
+      containers:
+        - name: web
+          image: ghcr.io/harrytang/web:main-ec9a336-1745209224 # {"$imagepolicy": "harrytang-staging:web"}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+          envFrom:
+            - configMapRef:
+                name: web-env
+            - secretRef:
+                name: web-env
+          volumeMounts:
+            - name: next-data
+              mountPath: /app/.next
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '1m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'

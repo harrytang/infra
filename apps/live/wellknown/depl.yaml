@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wellknown-identity
+  namespace: harrytang-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wellknown-identity
+  template:
+    metadata:
+      labels:
+        app: wellknown-identity
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          resources:
+            requests:
+              memory: '8Mi'
+              cpu: '1m'
+            limits:
+              memory: '16Mi'
+              cpu: '100m'
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/.well-known/microsoft-identity-association.json
+              subPath: microsoft-identity-association.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: microsoft-identity-config

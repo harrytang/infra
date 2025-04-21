@@ -1,0 +1,60 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: headless
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: headless
+  policy:
+    semver:
+      range: '>=1.0.0'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: web
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: web
+  policy:
+    semver:
+      range: '>=1.0.0'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: remark42
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: remark42
+  policy:
+    semver:
+      range: '>=1.13.1'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: curl
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: curl
+  policy:
+    semver:
+      range: '>=8.9.1'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: uptime-kuma
+  namespace: harrytang-prod
+spec:
+  imageRepositoryRef:
+    name: uptime-kuma
+  policy:
+    semver:
+      range: '>=2.0.0'
