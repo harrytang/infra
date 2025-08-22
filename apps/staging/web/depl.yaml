@@ -42,7 +42,7 @@ spec:
             claimName: next-data-pvc
       initContainers:
         - name: next-data
-          image: ghcr.io/harrytang/web:main-7ddba59-1755572126 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-a9d4a93-1755898464 # {"$imagepolicy": "harrytang-staging:web"}
           securityContext:
             runAsUser: 1001
             runAsGroup: 1001
@@ -70,7 +70,7 @@ spec:
               mountPath: /app/shared
       containers:
         - name: web
-          image: ghcr.io/harrytang/web:main-7ddba59-1755572126 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-a9d4a93-1755898464 # {"$imagepolicy": "harrytang-staging:web"}
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
