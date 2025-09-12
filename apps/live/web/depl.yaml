@@ -42,7 +42,7 @@ spec:
             claimName: next-data-pvc
       initContainers:
         - name: purge-cf-cache
-          image: curlimages/curl:8.15.0 # {"$imagepolicy": "harrytang-prod:curl"}
+          image: curlimages/curl:8.16.0 # {"$imagepolicy": "harrytang-prod:curl"}
           command: ['/bin/sh', '-c']
           args:
             - |
