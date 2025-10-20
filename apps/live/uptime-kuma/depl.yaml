@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: kuma
-          image: louislam/uptime-kuma:2.0.0 # {"$imagepolicy": "harrytang-prod:uptime-kuma"}
+          image: louislam/uptime-kuma:2.0.1 # {"$imagepolicy": "harrytang-prod:uptime-kuma"}
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
