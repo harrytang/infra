@@ -27,7 +27,6 @@ spec:
             runAsUser: 1000
             runAsGroup: 1000
             runAsNonRoot: true
-          image: ghcr.io/harrytang/headless:main-8d8291e-1759365574 # {"$imagepolicy": "harrytang-staging:headless"}
           imagePullPolicy: Always
           resources:
             requests:

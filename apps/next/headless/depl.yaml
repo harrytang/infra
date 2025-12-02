@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headless
+spec:
+  template:
+    spec:
+      containers:
+        - name: headless
+          image: ghcr.io/harrytang/headless:main-8d8291e-1759365574 # {"$imagepolicy": "harrytang-staging:headless"}

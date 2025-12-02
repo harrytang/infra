@@ -8,3 +8,7 @@ patches:
     target:
       kind: ConfigMap
       name: headless-env
+  - path: ./headless/depl.yaml
+    target:
+      kind: Deployment
+      name: headless
