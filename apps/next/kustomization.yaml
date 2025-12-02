@@ -8,6 +8,11 @@ resources:
   - ./web/sealed-secret.yaml
   - ./headless/sealed-secret.yaml
   - ./remark42/sealed-secret.yaml
+  # GitOps
+  - ../base/gitops
+  - ./gitops/image-policies.yaml
+  - ./gitops/fluxcd-signing-key.sealed-secret.yaml
+  - ./gitops/slack-url.sealed-secret.yaml
 patches:
   - path: ./headless/config-map.yaml
     target:
@@ -68,3 +73,12 @@ patches:
     target:
       kind: ConfigMap
       name: web-env
+  # GitOps
+  - path: ./gitops/alert.patch.yaml
+    target:
+      kind: Alert
+      name: slack
+  - path: ./gitops/image-update-automation.patch.yaml
+    target:
+      kind: ImageUpdateAutomation
+      name: harrytang

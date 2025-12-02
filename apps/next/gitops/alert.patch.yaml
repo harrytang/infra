@@ -1,0 +1,6 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: slack
+spec:
+  summary: harrytang-staging # will be replaced based on environment
