@@ -1,14 +1,12 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: headless-http
+  name: umami-http
 spec:
   parentRefs:
     - name: harrytang
       namespace: gateway
       sectionName: wildcard-http
-  hostnames:
-    - headless-next.harrytang.xyz
   rules:
     - filters:
         - type: RequestRedirect
@@ -19,19 +17,18 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: headless-https
+  name: umami-https
 spec:
   parentRefs:
     - name: harrytang
       namespace: gateway
       sectionName: wildcard-https
-  hostnames:
-    - headless-next.harrytang.xyz
   rules:
     - matches:
         - path:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: headless
-          port: 1337
+        - name: umami
+          namespace: umami
+          port: 3000
