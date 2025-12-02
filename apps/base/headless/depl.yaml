@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headless
+  annotations:
+    reloader.stakater.com/auto: 'true'
+  labels:
+    app: headless
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: headless
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: headless
+        version: v1
+    spec:
+      containers:
+        - name: headless
+          ports:
+            - containerPort: 1337
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+          image: ghcr.io/harrytang/headless:main-8d8291e-1759365574 # {"$imagepolicy": "harrytang-staging:headless"}
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '1m'
+            limits:
+              memory: '512Mi'
+              cpu: '500m'
+          envFrom:
+            - secretRef:
+                name: headless-env
+            - configMapRef:
+                name: headless-env
