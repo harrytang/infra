@@ -2,7 +2,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: headless-env
-  namespace: harrytang-staging
 data:
   # Strapi
   STRAPI_ADMIN_BACKEND_URL: 'https://headless-next.harrytang.xyz'
