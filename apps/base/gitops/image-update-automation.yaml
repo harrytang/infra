@@ -18,7 +18,6 @@ spec:
       signingKey:
         secretRef:
           name: fluxcd-signing-key
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
       branch: main
   update:
