@@ -6,8 +6,7 @@ data:
   # Strapi
   STRAPI_ADMIN_BACKEND_URL: 'https://headless-next.harrytang.xyz'
   # Database
-  DATABASE_NAME: 'staging_harry_strapi'
-  DATABASE_USERNAME: 'staging_harry_strapi'
-  # SMTP
+  DATABASE_NAME: 'harrytang_staging_headless'
+  DATABASE_USERNAME: 'harrytang_staging_headless'
   # STORAGE
   STORAGE_ROOT_PATH: 'next'
