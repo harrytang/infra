@@ -3,7 +3,9 @@ kind: Kustomization
 resources:
   - ../base/headless
   - ../base/umami
+  - ../base/remark42
   - ./headless/sealed-secret.yaml
+  - ./remark42/sealed-secret.yaml
 patches:
   - path: ./headless/config-map.yaml
     target:
@@ -30,3 +32,20 @@ patches:
     target:
       kind: HTTPRoute
       name: umami-https
+  # Remark42
+  - path: ./remark42/http-route.yaml
+    target:
+      kind: HTTPRoute
+      name: remark42-http
+  - path: ./remark42/https-route.yaml
+    target:
+      kind: HTTPRoute
+      name: remark42-https
+  - path: ./remark42/depl.yaml
+    target:
+      kind: Deployment
+      name: remark42
+  - path: ./remark42/config-map.yaml
+    target:
+      kind: ConfigMap
+      name: remark42-env       

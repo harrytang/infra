@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: remark42
+spec:
+  template:
+    spec:
+      containers:
+        - name: remark42
+          image: umputun/remark42:v1.14.0
+          
