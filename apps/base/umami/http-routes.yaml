@@ -7,6 +7,8 @@ spec:
     - name: harrytang
       namespace: gateway
       sectionName: wildcard-http
+  hostnames:
+    - webb-next.harrytang.xyz # will be replaced based on the environment
   rules:
     - filters:
         - type: RequestRedirect
@@ -23,7 +25,19 @@ spec:
     - name: harrytang
       namespace: gateway
       sectionName: wildcard-https
+  hostnames:
+    - webb-next.harrytang.xyz # will be replaced based on the environment
   rules:
+    - matches:
+        - path:
+            type: Exact
+            value: /
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            hostname: next.harrytang.xyz # will be replaced based on the environment
+            statusCode: 302
     - matches:
         - path:
             type: PathPrefix

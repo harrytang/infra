@@ -17,3 +17,11 @@ spec:
             scheme: https
             hostname: next.harrytang.xyz
             statusCode: 302
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: umami
+          namespace: umami
+          port: 3000
