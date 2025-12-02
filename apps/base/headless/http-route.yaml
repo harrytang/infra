@@ -33,5 +33,5 @@ spec:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: headless-srv
+        - name: headless
           port: 1337
