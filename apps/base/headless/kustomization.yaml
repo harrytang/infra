@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - config-map.yaml
   # - depl.yaml
-  # - service.yaml
-  # - http-route.yaml
+  - service.yaml
+  - http-route.yaml
