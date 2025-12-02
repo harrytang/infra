@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: web
-          image: ghcr.io/harrytang/web:main-f10a263-1764693741 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-a7d9b7e-1764709334 # {"$imagepolicy": "harrytang-staging:web"}
