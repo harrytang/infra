@@ -4,6 +4,8 @@ resources:
   - ../base/headless
   - ../base/umami
   - ../base/remark42
+  - ../base/web
+  - ./web/sealed-secret.yaml
   - ./headless/sealed-secret.yaml
   - ./remark42/sealed-secret.yaml
 patches:
@@ -48,4 +50,21 @@ patches:
   - path: ./remark42/config-map.yaml
     target:
       kind: ConfigMap
-      name: remark42-env       
+      name: remark42
+  # Web
+  - path: ./web/http-route.yaml
+    target:
+      kind: HTTPRoute
+      name: web-http
+  - path: ./web/https-route.yaml
+    target:
+      kind: HTTPRoute
+      name: web-https
+  - path: ./web/depl.yaml
+    target:
+      kind: Deployment
+      name: web
+  - path: ./web/config-map.yaml
+    target:
+      kind: ConfigMap
+      name: web-env

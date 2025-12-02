@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-env
+data:
+  NEXT_PUBLIC_SITE_URL: 'https://next.harrytang.xyz'
+  NEXT_PUBLIC_STRAPI_API_URL: 'https://headless-next.harrytang.xyz'

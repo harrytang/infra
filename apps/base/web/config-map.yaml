@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-env
+data:
+  NEXT_PUBLIC_SITE_URL: 'https://next.harrytang.xyz' # will be replaced based on environment
+  NEXT_PUBLIC_SITE_NAME: 'Harry Tang'
+  NEXT_PUBLIC_STRAPI_API_URL: 'https://headless-next.harrytang.xyz' # will be replaced based on environment
+  NEXT_PUBLIC_STORAGE_HOST: 'assets.harrytang.xyz'
+  NEXT_PUBLIC_PAGE_SIZE: '5'
+  NEXT_PUBLIC_HOME_PAGE_SIZE: '3'
+  NEXT_PUBLIC_AVATAR_URL: 'https://assets.harrytang.xyz/avatar.png'
+  NEXT_PUBLIC_FAVICON_URL: 'https://assets.harrytang.xyz/favicon.ico'
+  NEXT_PUBLIC_ICON_URL: 'https://assets.harrytang.xyz/favicon.png'
+  STRAPI_API_URL: 'http://headless:1337'
+  SITEMAP_SIZE: '500'
+  CF_ZONE_ID: 'c29d1f8a6ed704bc2b4d3960b310922f'
+  HOSTNAME: '0.0.0.0'
