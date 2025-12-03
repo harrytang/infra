@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: headless-env
+data:
+  # Strapi
+  STRAPI_ADMIN_BACKEND_URL: 'https://headless.harrytang.xyz'
+  # Database
+  DATABASE_NAME: 'harrytang_prod_headless'
+  DATABASE_USERNAME: 'harrytang_prod_headless'
+  # STORAGE
+  STORAGE_ROOT_PATH: 'prod'
