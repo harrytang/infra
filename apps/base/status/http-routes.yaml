@@ -9,7 +9,7 @@ spec:
       namespace: gateway
       sectionName: wildcard-http
   hostnames:
-    - status.harrytang.xyz
+    - status.harrytang.xyz # stating environment has no status page
   rules:
     - filters:
         - type: RequestRedirect
@@ -27,7 +27,7 @@ spec:
       namespace: gateway
       sectionName: wildcard-https
   hostnames:
-    - status.harrytang.xyz
+    - status.harrytang.xyz # stating environment has no status page
   rules:
     - matches:
         - path:

@@ -46,6 +46,7 @@ spec:
             - name: email-templates-volume
               mountPath: /srv/error_response.html.tmpl
               subPath: error_response.html.tmpl
+            # morewill be added based on environment  
           securityContext:
             readOnlyRootFilesystem: false
             runAsUser: 1001
