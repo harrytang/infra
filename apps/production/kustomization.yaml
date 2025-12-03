@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # wellknown
+  - ../../base/wellknown
   # Headless
   - ../base/headless
   - ./headless/sealed-secret.yaml
@@ -10,9 +12,9 @@ resources:
   - ../base/remark42
   - ./remark42/remark42-env.sealed-secret.yaml
   - ./remark42/apple-key.sealed-secret.yaml
-#   # Web
-#   - ../base/web
-#   - ./web/sealed-secret.yaml
+  # Web
+  - ../base/web
+  - ./web/sealed-secret.yaml
 #   # GitOps
 #   - ../base/gitops
 #   - ./gitops/image-policies.yaml
@@ -62,23 +64,23 @@ patches:
     target:
       kind: ConfigMap
       name: remark42
-  # # Web
-  # - path: ./web/http-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: web-http
-  # - path: ./web/https-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: web-https
-  # - path: ./web/depl.yaml
-  #   target:
-  #     kind: Deployment
-  #     name: web
-  # - path: ./web/config-map.yaml
-  #   target:
-  #     kind: ConfigMap
-  #     name: web-env
+  # Web
+  - path: ./web/patch.http-route.yaml
+    target:
+      kind: HTTPRoute
+      name: web-http
+  - path: ./web/patch.https-route.yaml
+    target:
+      kind: HTTPRoute
+      name: web-https
+  - path: ./web/patch.depl.yaml
+    target:
+      kind: Deployment
+      name: web
+  - path: ./web/patch.config-map.yaml
+    target:
+      kind: ConfigMap
+      name: web-env
   # # GitOps
   # - path: ./gitops/alert.patch.yaml
   #   target:
