@@ -15,6 +15,7 @@ resources:
   # Web
   - ../base/web
   - ./web/sealed-secret.yaml
+  - ./web/http-routes.yaml
   # GitOps
   - ../base/gitops
   - ./gitops/image-policies.yaml

@@ -4,5 +4,9 @@ kind: HTTPRoute
 metadata:
   name: web-http
 spec:
+  parentRefs:
+    - name: harrytang
+      namespace: gateway
+      sectionName: http
   hostnames:
     - harrytang.xyz
