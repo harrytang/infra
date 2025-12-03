@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # wellknown
-  - ../../base/wellknown
+  - ../base/wellknown
   # Headless
   - ../base/headless
   - ./headless/sealed-secret.yaml
@@ -15,11 +15,11 @@ resources:
   # Web
   - ../base/web
   - ./web/sealed-secret.yaml
-#   # GitOps
-#   - ../base/gitops
-#   - ./gitops/image-policies.yaml
-#   - ./gitops/fluxcd-signing-key.sealed-secret.yaml
-#   - ./gitops/slack-url.sealed-secret.yaml
+  # GitOps
+  - ../base/gitops
+  - ./gitops/image-policies.yaml
+  - ./gitops/fluxcd-signing-key.sealed-secret.yaml
+  - ./gitops/slack-url.sealed-secret.yaml
 patches:
   # Headless
   - path: ./headless/patch.config-map.yaml
@@ -81,12 +81,12 @@ patches:
     target:
       kind: ConfigMap
       name: web-env
-  # # GitOps
-  # - path: ./gitops/alert.patch.yaml
-  #   target:
-  #     kind: Alert
-  #     name: slack
-  # - path: ./gitops/image-update-automation.patch.yaml
-  #   target:
-  #     kind: ImageUpdateAutomation
-  #     name: harrytang
+  # GitOps
+  - path: ./gitops/patch.alert.yaml
+    target:
+      kind: Alert
+      name: slack
+  - path: ./gitops/patch.image-update-automation.yaml
+    target:
+      kind: ImageUpdateAutomation
+      name: harrytang
