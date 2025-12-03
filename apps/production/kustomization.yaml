@@ -6,8 +6,6 @@ resources:
   # Headless
   - ../base/headless
   - ./headless/sealed-secret.yaml
-#   # Umami
-#   - ../base/umami
   # Remark42
   - ../base/remark42
   - ./remark42/remark42-env.sealed-secret.yaml
@@ -41,15 +39,6 @@ patches:
     target:
       kind: HTTPRoute
       name: headless-https
-  # # Umami
-  # - path: ./umami/http-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: umami-http
-  # - path: ./umami/https-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: umami-https
   # Remark42
   - path: ./remark42/patch.http-route.yaml
     target:

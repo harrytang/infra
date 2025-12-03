@@ -1,84 +1,78 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # Headless
   - ../base/headless
-  - ../base/umami
+  - ./headless/sealed-secret.yaml
+  # Remark42
   - ../base/remark42
+  - ./remark42/sealed-secret.yaml
+  # Wev
   - ../base/web
   - ./web/sealed-secret.yaml
-  - ./headless/sealed-secret.yaml
-  - ./remark42/sealed-secret.yaml
   # GitOps
   - ../base/gitops
   - ./gitops/image-policies.yaml
   - ./gitops/fluxcd-signing-key.sealed-secret.yaml
   - ./gitops/slack-url.sealed-secret.yaml
 patches:
-  - path: ./headless/config-map.yaml
+  # Headless
+  - path: ./headless/patch.config-map.yaml
     target:
       kind: ConfigMap
       name: headless-env
-  - path: ./headless/depl.yaml
+  - path: ./headless/patch.depl.yaml
     target:
       kind: Deployment
       name: headless
-  - path: ./headless/http-route.yaml
+  - path: ./headless/patch.http-route.yaml
     target:
       kind: HTTPRoute
       name: headless-http
-  - path: ./headless/https-route.yaml
+  - path: ./headless/patch.https-route.yaml
     target:
       kind: HTTPRoute
       name: headless-https
-  # Umami
-  - path: ./umami/http-route.yaml
-    target:
-      kind: HTTPRoute
-      name: umami-http
-  - path: ./umami/https-route.yaml
-    target:
-      kind: HTTPRoute
-      name: umami-https
   # Remark42
-  - path: ./remark42/http-route.yaml
+  - path: ./remark42/patch.http-route.yaml
     target:
       kind: HTTPRoute
       name: remark42-http
-  - path: ./remark42/https-route.yaml
+  - path: ./remark42/patch.https-route.yaml
     target:
       kind: HTTPRoute
       name: remark42-https
-  - path: ./remark42/depl.yaml
+  - path: ./remark42/patch.depl.yaml
     target:
       kind: Deployment
       name: remark42
-  - path: ./remark42/config-map.yaml
+  - path: ./remark42/patch.config-map.yaml
     target:
       kind: ConfigMap
       name: remark42
   # Web
-  - path: ./web/http-route.yaml
+  - path: ./web/patch.http-route.yaml
     target:
       kind: HTTPRoute
       name: web-http
-  - path: ./web/https-route.yaml
+  - path: ./web/patch.https-route.yaml
     target:
       kind: HTTPRoute
       name: web-https
-  - path: ./web/depl.yaml
+  - path: ./web/patch.depl.yaml
     target:
       kind: Deployment
       name: web
-  - path: ./web/config-map.yaml
+  - path: ./web/patch.config-map.yaml
     target:
       kind: ConfigMap
       name: web-env
   # GitOps
-  - path: ./gitops/alert.patch.yaml
+  - path: ./gitops/patch.alert.yaml
     target:
       kind: Alert
       name: slack
-  - path: ./gitops/image-update-automation.patch.yaml
+  - path: ./gitops/patch.image-update-automation.yaml
     target:
       kind: ImageUpdateAutomation
       name: harrytang
