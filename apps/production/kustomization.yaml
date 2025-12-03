@@ -6,9 +6,9 @@ resources:
   - ./headless/sealed-secret.yaml
 #   # Umami
 #   - ../base/umami
-#   # Remark42
-#   - ../base/remark42
-#   - ./remark42/sealed-secret.yaml
+  # Remark42
+  - ../base/remark42
+  - ./remark42/sealed-secret.yaml
 #   # Web
 #   - ../base/web
 #   - ./web/sealed-secret.yaml
@@ -44,23 +44,23 @@ patches:
   #   target:
   #     kind: HTTPRoute
   #     name: umami-https
-  # # Remark42
-  # - path: ./remark42/http-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: remark42-http
-  # - path: ./remark42/https-route.yaml
-  #   target:
-  #     kind: HTTPRoute
-  #     name: remark42-https
-  # - path: ./remark42/depl.yaml
-  #   target:
-  #     kind: Deployment
-  #     name: remark42
-  # - path: ./remark42/config-map.yaml
-  #   target:
-  #     kind: ConfigMap
-  #     name: remark42
+  # Remark42
+  - path: ./remark42/patch.http-route.yaml
+    target:
+      kind: HTTPRoute
+      name: remark42-http
+  - path: ./remark42/patch.https-route.yaml
+    target:
+      kind: HTTPRoute
+      name: remark42-https
+  - path: ./remark42/patch.depl.yaml
+    target:
+      kind: Deployment
+      name: remark42
+  - path: ./remark42/patch.config-map.yaml
+    target:
+      kind: ConfigMap
+      name: remark42
   # # Web
   # - path: ./web/http-route.yaml
   #   target:
