@@ -5,6 +5,9 @@ metadata:
 spec:
   template:
     spec:
+      initContainers:
+        - name: next-data
+          image: ghcr.io/harrytang/web:main-0011199-1764783245 # {"$imagepolicy": "harrytang-staging:web"}
       containers:
         - name: web
           image: ghcr.io/harrytang/web:main-0011199-1764783245 # {"$imagepolicy": "harrytang-staging:web"}
