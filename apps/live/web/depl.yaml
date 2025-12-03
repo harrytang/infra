@@ -64,7 +64,7 @@ spec:
                   name: web-env
                   key: CF_API_TOKEN
         - name: next-data
-          image: ghcr.io/harrytang/web:v1.22.2 # {"$imagepolicy": "harrytang-prod:web"}
+          image: ghcr.io/harrytang/web:v1.22.3 # {"$imagepolicy": "harrytang-prod:web"}
           securityContext:
             runAsUser: 1001
             runAsGroup: 1001
@@ -92,7 +92,7 @@ spec:
               mountPath: /app/shared
       containers:
         - name: web
-          image: ghcr.io/harrytang/web:v1.22.2 # {"$imagepolicy": "harrytang-prod:web"}
+          image: ghcr.io/harrytang/web:v1.22.3 # {"$imagepolicy": "harrytang-prod:web"}
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
