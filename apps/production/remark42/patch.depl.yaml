@@ -8,4 +8,11 @@ spec:
       containers:
         - name: remark42
           image: umputun/remark42:v1.14.0 # {"$imagepolicy": "harrytang-prod:remark42"}
-          
+          volumeMounts:
+            - name: apple-key
+              mountPath: /srv/var/apple.p8
+              subPath: apple.p8
+      volumes:
+        - name: apple-key
+          secret:
+            secretName: apple-key  

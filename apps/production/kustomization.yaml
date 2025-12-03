@@ -8,7 +8,8 @@ resources:
 #   - ../base/umami
   # Remark42
   - ../base/remark42
-  - ./remark42/sealed-secret.yaml
+  - ./remark42/remark42-env.sealed-secret.yaml
+  - ./remark42/apple-key.sealed-secret.yaml
 #   # Web
 #   - ../base/web
 #   - ./web/sealed-secret.yaml
