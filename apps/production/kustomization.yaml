@@ -17,7 +17,7 @@ resources:
 #   - ./gitops/image-policies.yaml
 #   - ./gitops/fluxcd-signing-key.sealed-secret.yaml
 #   - ./gitops/slack-url.sealed-secret.yaml
-# patches:
+patches:
   # Headless
   - path: ./headless/patch.config-map.yaml
     target:
