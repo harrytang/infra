@@ -35,5 +35,5 @@ spec:
             value: /
       backendRefs:
         - name: uptime-kuma
-          namespace: uptime-kuma
+          namespace: uptime
           port: 3001
