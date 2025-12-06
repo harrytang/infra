@@ -6,7 +6,7 @@ data:
   # Strapi
   STRAPI_ADMIN_BACKEND_URL: 'https://headless.harrytang.xyz'
   # Database
-  DATABASE_NAME: 'harrytang_prod_headless'
-  DATABASE_USERNAME: 'harrytang_prod_headless'
+  DATABASE_NAME: 'harrytang-prod-headless'
+  DATABASE_USERNAME: 'harrytang-prod-headless'
   # STORAGE
   STORAGE_ROOT_PATH: 'prod'
