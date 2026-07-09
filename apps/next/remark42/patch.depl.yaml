@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: remark42
-          image: umputun/remark42:v1.16.1 # {"$imagepolicy": "harrytang-staging:remark42"}
+          image: umputun/remark42:v1.16.2 # {"$imagepolicy": "harrytang-staging:remark42"}
