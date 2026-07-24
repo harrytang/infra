@@ -7,7 +7,7 @@ spec:
     spec:
       initContainers:
         - name: next-data
-          image: ghcr.io/harrytang/web:main-4fa89c6-1784853955 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-c09ec87-1784935964 # {"$imagepolicy": "harrytang-staging:web"}
       containers:
         - name: web
-          image: ghcr.io/harrytang/web:main-4fa89c6-1784853955 # {"$imagepolicy": "harrytang-staging:web"}
+          image: ghcr.io/harrytang/web:main-c09ec87-1784935964 # {"$imagepolicy": "harrytang-staging:web"}
