@@ -9,11 +9,6 @@ metadata:
     version: v1
 spec:
   replicas: 1
-  # stop the old pod before starting the new one: two Strapi versions must never share the database
-  # (live Deployments were switched with `kubectl patch ... "rollingUpdate":null` first; Kubernetes
-  # rejects type: Recreate while the defaulted rollingUpdate block is still set)
-  strategy:
-    type: Recreate
   selector:
     matchLabels:
       app: headless
