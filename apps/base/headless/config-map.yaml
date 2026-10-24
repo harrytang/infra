@@ -13,6 +13,8 @@ data:
   DATABASE_HOST: 'maxscale-galera.galera'
   DATABASE_PORT: '3306'
   DATABASE_SSL: 'false'
+  # reads wait for Galera to apply prior writes (Strapi 5 re-reads entries to build webhooks)
+  DATABASE_WSREP_SYNC_WAIT: '1'
   # SMTP
   SMTP_HOST: 'smtp.tem.scw.cloud'
   SMTP_PORT: '587'
