@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: headless
-          image: ghcr.io/harrytang/headless:main-3992ecf-1792877592 # {"$imagepolicy": "harrytang-staging:headless"}
+          image: ghcr.io/harrytang/headless:main-f1c3c3a-1792878760 # {"$imagepolicy": "harrytang-staging:headless"}
