@@ -32,7 +32,7 @@ export AUTH_FACEBOOK_CID="toBeReplaced"
 export AUTH_FACEBOOK_CSEC="toBeReplaced"
 export AUTH_APPLE_CID="toBeReplaced"
 export AUTH_APPLE_TID="toBeReplaced"
-export AUTH_APPLE_KID="toBeReplaced"
+export AUTH_APPLE_KID="toBeReplaced" # plain 10-char Key ID (AuthKey_<KID>.p8), not base64
 export TELEGRAM_TOKEN="toBeReplaced"
 export SECRET=$(openssl rand -base64 32)
 export SMTP_USERNAME="toBeReplaced"
@@ -58,4 +58,16 @@ kubectl create secret generic --dry-run=client \
     --from-literal=SMTP_PASSWORD=$SMTP_PASSWORD \
     -o yaml \
     | kubeseal --format=yaml > sealed-secret.yaml
+```
+
+## Update a single sealed value
+
+Seal one value (e.g. `AUTH_APPLE_KID`) and replace that key's line under `spec.encryptedData` with the output; the
+other values stay as they are.
+
+```bash
+export NAMESPACE="toBeReplaced"
+export VALUE="toBeReplaced"
+
+printf '%s' "$VALUE" | kubeseal --raw --namespace $NAMESPACE --name remark42-env --from-file=/dev/stdin
 ```
