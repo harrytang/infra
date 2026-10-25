@@ -22,8 +22,6 @@ kubectl -n $NAMESPACE create secret generic apple-key --from-file=apple.p8 --dry
 
 ```bash
 export NAMESPACE="toBeReplaced"
-export AUTH_TWITTER_CID="toBeReplaced"
-export AUTH_TWITTER_CSEC="toBeReplaced"
 export AUTH_GOOGLE_CID="toBeReplaced"
 export AUTH_GOOGLE_CSEC="toBeReplaced"
 export AUTH_GITHUB_CID="toBeReplaced"
@@ -41,8 +39,6 @@ export SMTP_PASSWORD="toBeReplaced"
 kubectl create secret generic --dry-run=client \
     remark42-env \
     --namespace=$NAMESPACE \
-    --from-literal=AUTH_TWITTER_CID=$AUTH_TWITTER_CID \
-    --from-literal=AUTH_TWITTER_CSEC=$AUTH_TWITTER_CSEC \
     --from-literal=AUTH_GOOGLE_CID=$AUTH_GOOGLE_CID \
     --from-literal=AUTH_GOOGLE_CSEC=$AUTH_GOOGLE_CSEC \
     --from-literal=AUTH_GITHUB_CID=$AUTH_GITHUB_CID \
